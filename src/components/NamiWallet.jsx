@@ -45,7 +45,8 @@ function NamiWallet() {
           const addresses = await window.cardano.getChangeAddress();
           console.log("Address ::" , addresses);
           
-          const addressBech32 = await wasm.Address.from_bytes(Buffer.from(addresses, 'hex')).to_bech32();;
+          const addressByte = Buffer.from(addresses,'hex');
+          const addressBech32 = await wasm.Address.from_bytes(addressByte).to_bech32();;
           console.log("Buffer ::", addressBech32);
 
         
